@@ -6,6 +6,7 @@ const brandSeed = async () => {
   try {
     // Conexión a BBDD
     await connect();
+    console.log("Tenemos conexión");
 
     // Borramos datos de marcas
     await Brand.collection.drop();

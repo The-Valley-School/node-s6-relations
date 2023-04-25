@@ -8,6 +8,8 @@
     "seed:users": "node ./seeds/user.seed.js",
     "seed:cars": "node ./seeds/car.seed.js",
     "seed:brands": "node ./seeds/brand.seed.js",
+    "seed:car-relations": "node ./seeds/car-relations.seed.js",
+    "seed:all": "npm run seed:users && npm run seed:cars && npm run seed:brands && npm run seed:car-relations",
     "start:watch": "node --watch index.js",
     "start": "node index.js",
     "lint": "eslint",

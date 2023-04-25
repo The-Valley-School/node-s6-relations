@@ -5,8 +5,9 @@ const Schema = mongoose.Schema;
 const carSchema = new Schema(
   {
     brand: {
-      type: String,
-      required: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Brand",
+      required: false,
     },
     model: {
       type: String,
@@ -23,6 +24,7 @@ const carSchema = new Schema(
     owner: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+      required: false,
     },
   },
   {

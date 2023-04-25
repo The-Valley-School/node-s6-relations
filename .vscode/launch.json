@@ -9,7 +9,7 @@
       "request": "launch",
       "name": "Iniciar el programa",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/index.js"
+      "program": "${workspaceFolder}/seeds/car-relations.seed.js"
     }
   ]
 }

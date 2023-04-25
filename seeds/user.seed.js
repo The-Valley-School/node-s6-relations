@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const { connect } = require("../db.js");
 const { User } = require("../models/User.js");
-const { faker } = require("@faker-js/faker");
 
 const userList = [
   {
@@ -27,17 +26,7 @@ const userList = [
   },
 ];
 
-// Creamos usuarios adicionales
-for (let i = 0; i < 50; i++) {
-  const newUser = {
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    phone: faker.phone.number("+34 91 ### ## ##"),
-  };
-  userList.push(newUser);
-}
-
-const run = async () => {
+const userSeed = async () => {
   try {
     await connect();
     console.log("Tenemos conexión");
@@ -49,7 +38,7 @@ const run = async () => {
     // Añadimos usuarios
     const documents = userList.map((user) => new User(user));
     await User.insertMany(documents);
-    console.log("Datos guardados correctamente!");
+    console.log("Usuarios creados correctamente!");
   } catch (error) {
     console.error("ERROR AL CONECTAR CON LA BBDD");
     console.error(error);
@@ -58,4 +47,4 @@ const run = async () => {
   }
 };
 
-run();
+userSeed();
