@@ -2,6 +2,7 @@ const express = require("express");
 
 // Modelos
 const { User } = require("../models/User.js");
+const { Car } = require("../models/Car.js");
 
 // Router propio de usuarios
 const router = express.Router();
@@ -39,8 +40,16 @@ router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const user = await User.findById(id);
+
     if (user) {
-      res.json(user);
+      const temporalUser = user.toObject();
+      const includeCars = req.query.includeCars === "true";
+      if (includeCars) {
+        const cars = await Car.find({ owner: id });
+        temporalUser.cars = cars;
+      }
+
+      res.json(temporalUser);
     } else {
       res.status(404).json({});
     }
