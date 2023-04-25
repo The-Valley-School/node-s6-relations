@@ -1,0 +1,31 @@
+{
+  "name": "s3-mongoose-intro",
+  "version": "1.0.0",
+  "description": "Mongoo first steps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:users": "node ./seeds/user.seed.js",
+    "seed:cars": "node ./seeds/car.seed.js",
+    "start:watch": "node --watch index.js",
+    "start": "node index.js",
+    "lint": "eslint",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "eslint": "^8.37.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^8.0.0"
+  },
+  "author": "Fran Linde",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3"
+  }
+}
