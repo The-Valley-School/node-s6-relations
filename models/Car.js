@@ -20,6 +20,10 @@ const carSchema = new Schema(
       type: Number,
       required: false,
     },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
   },
   {
     timestamps: true,

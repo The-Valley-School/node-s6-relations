@@ -15,7 +15,8 @@ router.get("/", async (req, res) => {
     const limit = parseInt(req.query.limit);
     const cars = await Car.find()
       .limit(limit)
-      .skip((page - 1) * limit);
+      .skip((page - 1) * limit)
+      .populate("owner");
 
     // Num total de elementos
     const totalElements = await Car.countDocuments();
@@ -37,7 +38,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const car = await Car.findById(id);
+    const car = await Car.findById(id).populate("owner");
     if (car) {
       res.json(car);
     } else {
@@ -53,7 +54,7 @@ router.get("/brand/:brand", async (req, res) => {
   const brand = req.params.brand;
 
   try {
-    const car = await Car.find({ brand: new RegExp("^" + brand.toLowerCase(), "i") });
+    const car = await Car.find({ brand: new RegExp("^" + brand.toLowerCase(), "i") }).populate("owner");
     if (car?.length) {
       res.json(car);
     } else {
