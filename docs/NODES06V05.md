@@ -1,4 +1,4 @@
-# VIDEO 05 - Ejercicio: API Rest con relaciones
+# VIDEO 05 - Ejercicio: Relación libros y autores
 
 En este ejercicio debes continuar con el API de libros que dejamos en la sesión anterior. Sobre el código que teníamos debes realizar las siguientes modificaciones.
 
